@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First In Formation | Créez Votre Conciergerie de Luxe</title>
-    <meta name="description" content="Devenez un véritable expert du sur-mesure grâce à notre formation intensive. +450 élèves formés, +6 millions d'euros générés.">
+    <meta name="description" content="Formation complète pour créer et structurer votre conciergerie de A à Z. +450 élèves formés, +6 millions d'euros générés.">
     <link rel="icon" type="image/png" href="./assets/images/LOGO NOIR.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
     <style>
         :root {
+            /* Palette principale - VERT UNIQUEMENT */
             --white: #ffffff;
             --off-white: #fafafa;
             --cream: #f7f6f3;
@@ -22,11 +23,13 @@
             --gray-400: #a3a3a3;
             --gray-300: #d4d4d4;
             --gray-200: #e5e5e5;
+
+            /* Verts - Palette principale */
             --green-deep: #16332d;
             --green: #1a4d3e;
             --green-accent: #24775f;
             --green-light: #2d9474;
-            --gold: #c9a962;
+            --green-lighter: #3eb489;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,21 +59,19 @@
         }
 
         /* ═══════════════════════════════════════════════════
-           PRELOADER (2.5s max)
+           PRELOADER
         ═══════════════════════════════════════════════════ */
         .preloader {
             position: fixed;
             inset: 0;
-            background: var(--black);
+            background: var(--green-deep);
             z-index: 10000;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
         }
-        .preloader.hide {
-            transform: translateY(-100%);
-        }
+        .preloader.hide { transform: translateY(-100%); }
         .preloader-inner { text-align: center; }
         .preloader-logo {
             width: 160px;
@@ -85,7 +86,7 @@
         .preloader-bar {
             width: 200px;
             height: 2px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.15);
             border-radius: 2px;
             overflow: hidden;
             margin: 0 auto;
@@ -93,12 +94,10 @@
         .preloader-bar-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--green-accent), var(--gold));
+            background: linear-gradient(90deg, var(--green-light), var(--green-lighter));
             animation: loadBar 2s ease-out forwards;
         }
-        @keyframes loadBar {
-            to { width: 100%; }
-        }
+        @keyframes loadBar { to { width: 100%; } }
 
         /* ═══════════════════════════════════════════════════
            NAVIGATION
@@ -156,22 +155,22 @@
             transition: all 0.3s;
         }
         .nav.scrolled .nav-cta {
-            background: var(--green-deep);
+            background: var(--green-accent);
             border-color: transparent;
         }
         .nav-cta:hover {
-            background: var(--white);
-            color: var(--green-deep);
+            background: var(--green-light);
+            color: var(--white);
             transform: translateY(-2px);
         }
 
         /* ═══════════════════════════════════════════════════
-           HERO - OPTIMISÉ CONVERSION
+           HERO
         ═══════════════════════════════════════════════════ */
         .hero {
             min-height: 100vh;
             position: relative;
-            background: var(--black);
+            background: var(--green-deep);
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -184,12 +183,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.4;
+            opacity: 0.35;
         }
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.5) 100%);
+            background: linear-gradient(135deg, rgba(22,51,45,0.9) 0%, rgba(22,51,45,0.6) 100%);
         }
         .hero-container {
             position: relative;
@@ -204,8 +203,8 @@
             align-items: center;
             gap: 10px;
             padding: 10px 22px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 50px;
             margin-bottom: 35px;
         }
@@ -229,7 +228,7 @@
         }
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(38px, 5vw, 64px);
+            font-size: clamp(36px, 5vw, 60px);
             font-weight: 400;
             color: var(--white);
             line-height: 1.15;
@@ -240,11 +239,11 @@
         }
         .hero-title em {
             font-style: italic;
-            color: var(--gold);
+            color: var(--green-lighter);
         }
         .hero-subtitle {
             font-size: 18px;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.75);
             max-width: 650px;
             margin: 0 auto 40px;
             line-height: 1.7;
@@ -281,38 +280,35 @@
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 50px;
+            gap: 40px;
             flex-wrap: wrap;
         }
         .hero-stat {
             text-align: center;
-            padding: 20px 25px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
+            padding: 20px 28px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
         }
         .hero-stat-value {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
+            font-size: 32px;
             color: var(--white);
             font-weight: 500;
         }
         .hero-stat-label {
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+            color: rgba(255,255,255,0.55);
             margin-top: 5px;
         }
 
         /* ═══════════════════════════════════════════════════
-           SECTION COMMUNE
+           SECTIONS COMMUNES
         ═══════════════════════════════════════════════════ */
-        .section {
-            padding: 120px 0;
-        }
+        .section { padding: 110px 0; }
         .section-white { background: var(--white); }
         .section-cream { background: var(--cream); }
         .section-dark { background: var(--green-deep); }
-        .section-black { background: var(--black); }
 
         .section-container {
             max-width: 1200px;
@@ -322,7 +318,7 @@
         .section-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 70px;
+            margin: 0 auto 65px;
         }
         .section-tag {
             font-size: 12px;
@@ -330,15 +326,15 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--green-accent);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
-        .section-dark .section-tag { color: var(--gold); }
+        .section-dark .section-tag { color: var(--green-light); }
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 4.5vw, 48px);
+            font-size: clamp(30px, 4vw, 44px);
             font-weight: 400;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             color: var(--black);
         }
         .section-dark .section-title { color: var(--white); }
@@ -346,9 +342,9 @@
             font-style: italic;
             color: var(--green-accent);
         }
-        .section-dark .section-title em { color: var(--gold); }
+        .section-dark .section-title em { color: var(--green-light); }
         .section-intro {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--gray-600);
             line-height: 1.7;
         }
@@ -359,7 +355,7 @@
         ═══════════════════════════════════════════════════ */
         .credibility {
             background: var(--white);
-            padding: 50px 0;
+            padding: 45px 0;
             border-bottom: 1px solid var(--gray-200);
         }
         .credibility-container {
@@ -369,12 +365,12 @@
             text-align: center;
         }
         .credibility-text {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--gray-500);
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
         .credibility-logos {
             display: flex;
@@ -384,7 +380,7 @@
             flex-wrap: wrap;
         }
         .credibility-logo {
-            height: 28px;
+            height: 26px;
             opacity: 0.5;
             filter: grayscale(100%);
             transition: all 0.3s;
@@ -400,16 +396,14 @@
         .founder-grid {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
-            gap: 80px;
+            gap: 70px;
             align-items: start;
         }
-        .founder-image-wrap {
-            position: relative;
-        }
+        .founder-image-wrap { position: relative; }
         .founder-image {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.1);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.1);
         }
         .founder-image img {
             width: 100%;
@@ -422,86 +416,84 @@
             right: -20px;
             background: var(--green-accent);
             color: var(--white);
-            padding: 22px 28px;
-            border-radius: 16px;
+            padding: 20px 26px;
+            border-radius: 14px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(36,119,95,0.3);
+            box-shadow: 0 12px 35px rgba(36,119,95,0.3);
         }
         .founder-badge-value {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 26px;
         }
         .founder-badge-label {
-            font-size: 12px;
+            font-size: 11px;
             opacity: 0.85;
             margin-top: 3px;
         }
         .founder-greeting {
             font-family: 'Playfair Display', serif;
-            font-size: 22px;
+            font-size: 20px;
             font-style: italic;
             color: var(--green-accent);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .founder-name {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 800;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
         .founder-story {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--gray-700);
             line-height: 1.85;
         }
-        .founder-story p { margin-bottom: 22px; }
+        .founder-story p { margin-bottom: 20px; }
         .founder-story strong {
             color: var(--black);
             font-weight: 600;
         }
         .founder-chapter {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 18px;
             font-style: italic;
             color: var(--green-accent);
-            margin: 35px 0 20px;
-            padding-left: 18px;
+            margin: 30px 0 16px;
+            padding-left: 16px;
             border-left: 3px solid var(--green-accent);
         }
         .founder-quote {
-            background: linear-gradient(135deg, rgba(36,119,95,0.06), transparent);
-            padding: 35px 40px;
-            border-radius: 16px;
-            margin: 35px 0;
+            background: linear-gradient(135deg, rgba(36,119,95,0.08), transparent);
+            padding: 30px 35px;
+            border-radius: 14px;
+            margin: 30px 0;
             border-left: 3px solid var(--green-accent);
         }
         .founder-quote p {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 18px;
             font-style: italic;
             line-height: 1.6;
             color: var(--gray-800);
             margin: 0;
         }
-        .founder-cta {
-            margin-top: 35px;
-        }
+        .founder-cta { margin-top: 30px; }
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 16px 32px;
+            padding: 14px 30px;
             background: #25D366;
             color: var(--white);
             border-radius: 50px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(37,211,102,0.25);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.25);
         }
         .btn-whatsapp:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(37,211,102,0.35);
+            box-shadow: 0 12px 35px rgba(37,211,102,0.35);
         }
 
         /* ═══════════════════════════════════════════════════
@@ -510,14 +502,14 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            gap: 25px;
         }
         .stat-card {
             text-align: center;
-            padding: 45px 25px;
+            padding: 40px 22px;
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
+            border-radius: 18px;
             transition: all 0.3s;
         }
         .stat-card:hover {
@@ -526,15 +518,15 @@
         }
         .stat-value {
             font-family: 'Playfair Display', serif;
-            font-size: 50px;
+            font-size: 44px;
             color: var(--white);
             line-height: 1;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .stat-label {
-            font-size: 14px;
+            font-size: 13px;
             color: rgba(255,255,255,0.6);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* ═══════════════════════════════════════════════════
@@ -543,51 +535,49 @@
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 28px;
         }
         .pillar-card {
             background: var(--white);
-            border-radius: 24px;
-            padding: 45px 35px;
+            border-radius: 22px;
+            padding: 40px 32px;
             border: 1px solid var(--gray-200);
             transition: all 0.3s;
         }
         .pillar-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.08);
             border-color: var(--green-accent);
         }
         .pillar-icon {
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--green-deep), var(--green-accent));
-            border-radius: 18px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             color: var(--white);
         }
         .pillar-card h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
         .pillar-card > p {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--gray-600);
             line-height: 1.7;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
-        .pillar-list {
-            list-style: none;
-        }
+        .pillar-list { list-style: none; }
         .pillar-list li {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            padding: 12px 0;
-            font-size: 14px;
+            padding: 10px 0;
+            font-size: 13px;
             color: var(--gray-700);
             border-top: 1px solid var(--gray-200);
         }
@@ -597,46 +587,46 @@
             margin-top: 2px;
         }
         .pillar-stat {
-            margin-top: 25px;
-            padding: 20px;
+            margin-top: 22px;
+            padding: 18px;
             background: var(--cream);
-            border-radius: 14px;
+            border-radius: 12px;
             text-align: center;
         }
         .pillar-stat-value {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 28px;
             color: var(--green-accent);
         }
         .pillar-stat-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--gray-600);
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         /* ═══════════════════════════════════════════════════
-           TRANSFORMATION (Timeline)
+           TRANSFORMATION
         ═══════════════════════════════════════════════════ */
         .transformation-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
+            gap: 30px;
         }
         .transformation-card {
             background: var(--white);
-            border-radius: 24px;
-            padding: 45px 35px;
+            border-radius: 22px;
+            padding: 40px 30px;
             text-align: center;
             position: relative;
             border: 1px solid var(--gray-200);
         }
         .transformation-step {
             position: absolute;
-            top: -20px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: var(--green-accent);
             color: var(--white);
             border-radius: 50%;
@@ -644,27 +634,27 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
         }
         .transformation-title {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin: 25px 0 10px;
+            font-size: 22px;
+            margin: 22px 0 8px;
             color: var(--black);
         }
         .transformation-period {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--green-accent);
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
         .transformation-list {
             list-style: none;
             text-align: left;
         }
         .transformation-list li {
-            padding: 10px 0;
-            font-size: 15px;
+            padding: 9px 0;
+            font-size: 14px;
             color: var(--gray-700);
             border-bottom: 1px solid var(--gray-100);
             display: flex;
@@ -677,30 +667,30 @@
             flex-shrink: 0;
         }
         .transformation-feeling {
-            margin-top: 25px;
-            padding: 18px;
+            margin-top: 22px;
+            padding: 16px;
             background: linear-gradient(135deg, rgba(36,119,95,0.08), transparent);
-            border-radius: 12px;
+            border-radius: 10px;
         }
         .transformation-feeling span {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--gray-500);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         .transformation-feeling strong {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--green-accent);
         }
 
         /* ═══════════════════════════════════════════════════
-           ASPIRATION (WOW Section)
+           ASPIRATION
         ═══════════════════════════════════════════════════ */
         .aspiration {
-            padding: 120px 0;
-            background: var(--black);
+            padding: 110px 0;
+            background: var(--green-deep);
             text-align: center;
         }
         .aspiration-container {
@@ -710,24 +700,24 @@
         }
         .aspiration-text {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 4vw, 44px);
+            font-size: clamp(26px, 4vw, 40px);
             color: var(--white);
             line-height: 1.3;
             max-width: 700px;
-            margin: 0 auto 60px;
+            margin: 0 auto 55px;
         }
         .aspiration-text em {
             font-style: italic;
-            color: var(--gold);
+            color: var(--green-lighter);
         }
         .aspiration-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 45px;
+            gap: 14px;
+            margin-bottom: 40px;
         }
         .aspiration-image {
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
             aspect-ratio: 1;
         }
@@ -735,13 +725,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
-        .aspiration-image:hover img {
-            transform: scale(1.08);
-        }
+        .aspiration-image:hover img { transform: scale(1.08); }
         .aspiration-tagline {
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: rgba(255,255,255,0.4);
@@ -753,82 +741,82 @@
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            gap: 25px;
         }
         .testimonial-card {
             background: var(--white);
-            border-radius: 24px;
-            padding: 40px;
+            border-radius: 22px;
+            padding: 35px;
             border: 1px solid var(--gray-200);
             position: relative;
             transition: all 0.3s;
         }
         .testimonial-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.08);
         }
         .testimonial-badge {
             position: absolute;
-            top: 30px;
-            right: 30px;
+            top: 28px;
+            right: 28px;
             background: var(--green-accent);
             color: var(--white);
-            padding: 8px 18px;
+            padding: 7px 16px;
             border-radius: 50px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
         }
         .testimonial-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 18px;
         }
         .testimonial-avatar {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--cream);
         }
         .testimonial-info h4 {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
         .testimonial-info span {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--gray-500);
         }
         .testimonial-stars {
             display: flex;
             gap: 3px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             color: #f59e0b;
         }
         .testimonial-quote {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.75;
             color: var(--gray-700);
             font-style: italic;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
         .testimonial-transformation {
-            padding-top: 20px;
+            padding-top: 18px;
             border-top: 1px solid var(--gray-200);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
         }
-        .testimonial-before, .testimonial-after { font-size: 13px; }
+        .testimonial-before, .testimonial-after { font-size: 12px; }
         .testimonial-before span, .testimonial-after span {
             display: block;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--gray-400);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         .testimonial-before strong {
             color: var(--gray-600);
@@ -845,14 +833,14 @@
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
+            gap: 20px;
             max-width: 950px;
             margin: 0 auto;
         }
         .faq-item {
             background: var(--cream);
-            border-radius: 18px;
-            padding: 32px 35px;
+            border-radius: 16px;
+            padding: 28px 32px;
             border: 1px solid transparent;
             transition: all 0.3s;
         }
@@ -861,10 +849,10 @@
             background: var(--white);
         }
         .faq-question {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--black);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -878,15 +866,15 @@
             font-size: 14px;
             color: var(--gray-600);
             line-height: 1.7;
-            padding-left: 32px;
+            padding-left: 30px;
         }
 
         /* ═══════════════════════════════════════════════════
            CTA FINAL
         ═══════════════════════════════════════════════════ */
         .cta-final {
-            padding: 160px 0;
-            background: var(--black);
+            padding: 150px 0;
+            background: var(--green-deep);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -899,12 +887,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.15;
+            opacity: 0.12;
         }
         .cta-final-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at center, transparent 0%, var(--black) 75%);
+            background: radial-gradient(ellipse at center, transparent 0%, var(--green-deep) 75%);
         }
         .cta-container {
             max-width: 800px;
@@ -915,20 +903,20 @@
         }
         .cta-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(34px, 5vw, 54px);
+            font-size: clamp(32px, 4.5vw, 50px);
             color: var(--white);
             line-height: 1.15;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
         .cta-title em {
             font-style: italic;
-            color: var(--gold);
+            color: var(--green-lighter);
         }
         .cta-text {
-            font-size: 18px;
+            font-size: 17px;
             color: rgba(255,255,255,0.65);
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin: 0 auto 35px;
             line-height: 1.7;
         }
         .cta-guarantee {
@@ -936,11 +924,11 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 30px;
-            font-size: 14px;
+            margin-top: 28px;
+            font-size: 13px;
             color: rgba(255,255,255,0.5);
         }
-        .cta-guarantee svg { color: var(--gold); }
+        .cta-guarantee svg { color: var(--green-light); }
 
         /* ═══════════════════════════════════════════════════
            FOOTER
@@ -948,7 +936,7 @@
         .footer {
             background: var(--black);
             color: var(--white);
-            padding: 80px 0 40px;
+            padding: 75px 0 38px;
             border-top: 1px solid rgba(255,255,255,0.06);
         }
         .footer-container {
@@ -959,44 +947,42 @@
         .footer-main {
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 50px;
-            padding-bottom: 50px;
+            gap: 45px;
+            padding-bottom: 45px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         .footer-brand img {
-            height: 45px;
-            margin-bottom: 20px;
+            height: 42px;
+            margin-bottom: 18px;
         }
         .footer-brand p {
-            font-size: 14px;
+            font-size: 13px;
             color: rgba(255,255,255,0.5);
             line-height: 1.7;
             max-width: 280px;
         }
         .footer-title {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
-        .footer-links {
-            list-style: none;
-        }
-        .footer-links li { margin-bottom: 12px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
         .footer-links a {
             color: rgba(255,255,255,0.5);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             transition: color 0.3s;
         }
-        .footer-links a:hover { color: var(--gold); }
+        .footer-links a:hover { color: var(--green-light); }
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 35px;
-            font-size: 13px;
+            padding-top: 32px;
+            font-size: 12px;
             color: rgba(255,255,255,0.3);
         }
 
@@ -1004,9 +990,9 @@
            RESPONSIVE
         ═══════════════════════════════════════════════════ */
         @media (max-width: 1100px) {
-            .founder-grid { grid-template-columns: 1fr; gap: 50px; }
-            .founder-image-wrap { max-width: 400px; margin: 0 auto; }
-            .pillars-grid, .testimonials-grid, .transformation-grid { grid-template-columns: 1fr; max-width: 450px; margin-left: auto; margin-right: auto; }
+            .founder-grid { grid-template-columns: 1fr; gap: 45px; }
+            .founder-image-wrap { max-width: 380px; margin: 0 auto; }
+            .pillars-grid, .testimonials-grid, .transformation-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .aspiration-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-main { grid-template-columns: 1fr 1fr; }
@@ -1014,24 +1000,24 @@
         @media (max-width: 768px) {
             .nav { padding: 18px 25px; }
             .nav-links { display: none; }
-            .section { padding: 90px 0; }
+            .section { padding: 85px 0; }
             .section-container, .hero-container, .aspiration-container, .cta-container, .footer-container, .credibility-container { padding-left: 25px; padding-right: 25px; }
-            .hero-stats { flex-direction: column; gap: 15px; }
-            .hero-stat { width: 100%; max-width: 280px; }
-            .stats-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
-            .stat-card { padding: 30px 15px; }
-            .stat-value { font-size: 38px; }
+            .hero-stats { flex-direction: column; gap: 12px; }
+            .hero-stat { width: 100%; max-width: 260px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat-card { padding: 28px 14px; }
+            .stat-value { font-size: 36px; }
             .faq-grid { grid-template-columns: 1fr; }
             .footer-main { grid-template-columns: 1fr; text-align: center; }
             .footer-brand { display: flex; flex-direction: column; align-items: center; }
             .footer-brand p { max-width: 100%; }
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
         }
     </style>
 </head>
 <body class="loading">
 
-    <!-- PRELOADER (2.5s) -->
+    <!-- PRELOADER -->
     <div class="preloader" id="preloader">
         <div class="preloader-inner">
             <img src="./assets/images/LOGO BLANC.png" alt="First In" class="preloader-logo">
@@ -1053,13 +1039,11 @@
                 <a href="a-propos.html">À propos</a>
                 <a href="vos-reussites.html">Vos réussites</a>
             </div>
-            <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20la%20formation" class="nav-cta" target="_blank">Contactez-nous</a>
+            <a href="contact.html" class="nav-cta">Contactez-nous</a>
         </div>
     </nav>
 
-    <!-- ═══════════════════════════════════════════════════
-         1. HERO - OPTIMISÉ CONVERSION
-    ═══════════════════════════════════════════════════ -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-bg">
             <video autoplay muted loop playsinline>
@@ -1075,16 +1059,15 @@
             </div>
 
             <h1 class="hero-title">
-                Accédez à un réseau d'exception et créez votre <em>conciergerie de luxe</em>
+                Créez et structurez votre <em>conciergerie</em> de A à Z
             </h1>
 
             <p class="hero-subtitle">
-                Une formation complète pour lancer votre conciergerie haut de gamme,
-                développer un réseau solide et proposer des services premium à une clientèle d'exception.
+                Une formation complète pour lancer votre conciergerie de luxe, développer un réseau solide et proposer des services premium à une clientèle d'exception.
             </p>
 
             <div class="hero-cta-group">
-                <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20appel%20gratuit" class="btn-whatsapp-hero" target="_blank">
+                <a href="https://wa.me/33744934330?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20appel%20gratuit" class="btn-whatsapp-hero" target="_blank">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.917.918l4.462-1.496A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
                     Réserver mon appel gratuit
                 </a>
@@ -1112,24 +1095,20 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         2. CRÉDIBILITÉ
-    ═══════════════════════════════════════════════════ -->
+    <!-- CRÉDIBILITÉ -->
     <section class="credibility">
         <div class="credibility-container">
             <p class="credibility-text">Reconnu par les médias et plateformes leaders</p>
             <div class="credibility-logos">
                 <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/3a/Logo_La_D%C3%A9p%C3%AAche_du_Midi_%282020%29.svg/200px-Logo_La_D%C3%A9p%C3%AAche_du_Midi_%282020%29.svg.png" alt="La Dépêche" class="credibility-logo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/200px-Meta_Platforms_Inc._logo.svg.png" alt="Meta" class="credibility-logo">
-                <img src="https://assets.skool.com/skool/e0ca06c3808a49b68d522c1ebef58ba6.png" alt="Skool" class="credibility-logo" style="height: 24px;">
+                <img src="https://assets.skool.com/skool/e0ca06c3808a49b68d522c1ebef58ba6.png" alt="Skool" class="credibility-logo" style="height: 22px;">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Groupe_M6_logo.svg/200px-Groupe_M6_logo.svg.png" alt="Groupe M6" class="credibility-logo">
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         3. FONDATEUR
-    ═══════════════════════════════════════════════════ -->
+    <!-- FONDATEUR -->
     <section class="section section-white" id="fondateur">
         <div class="section-container">
             <div class="founder-grid">
@@ -1150,19 +1129,15 @@
                     <div class="founder-story">
                         <p>
                             <strong>Il y a quelques années encore, j'étais un simple étudiant.</strong>
-                            Pas de réseau particulier dans le monde du luxe, pas de capital de départ,
-                            pas d'expérience dans la conciergerie. Juste une conviction profonde :
-                            je voulais construire quelque chose qui compte.
+                            Pas de réseau particulier dans le monde du luxe, pas de capital de départ.
+                            Juste une conviction profonde : je voulais construire quelque chose qui compte.
                         </p>
 
                         <p class="founder-chapter">Le déclic</p>
 
                         <p>
-                            J'ai découvert le monde de la conciergerie de luxe presque par hasard,
-                            lors d'un voyage à Dubaï. J'ai vu comment les concierges créaient des
-                            expériences uniques pour une clientèle d'exception : réservations impossibles,
-                            accès exclusifs, services sur-mesure. Et j'ai compris :
-                            <strong>ce marché n'est pas réservé à une élite née dedans</strong>.
+                            J'ai découvert le monde de la conciergerie de luxe lors d'un voyage à Dubaï.
+                            J'ai compris que <strong>ce marché n'est pas réservé à une élite née dedans</strong>.
                             Il est accessible à ceux qui osent.
                         </p>
 
@@ -1170,13 +1145,6 @@
 
                         <p>
                             J'ai tout quitté pour m'installer à Dubaï.
-                            <strong>Les débuts étaient difficiles.</strong> Des dizaines de refus,
-                            des nuits à peaufiner mon offre. Mais chaque "non" me rapprochait du prochain "oui".
-                        </p>
-
-                        <p>
-                            Petit à petit, j'ai construit mon réseau. Un contact dans un hôtel 5 étoiles,
-                            puis un autre chez un yacht broker, puis un troisième pour les jets privés...
                             <strong>En 6 mois, j'avais mes premiers clients réguliers.</strong>
                             En 3 ans, une présence internationale.
                         </p>
@@ -1186,27 +1154,24 @@
                         <p>
                             J'ai bâti une agence présente dans <strong>6 pays</strong>,
                             avec un réseau de <strong>plus de 220 partenaires premium</strong>.
-                            Et surtout, j'ai formé <strong>plus de 450 personnes</strong> qui ont lancé
-                            leur propre activité.
+                            Et surtout, j'ai formé <strong>plus de 450 personnes</strong>.
                         </p>
 
                         <div class="founder-quote">
                             <p>
-                                "Mes élèves ont collectivement généré plus de 6 millions d'euros.
-                                Ce n'est pas de la magie. C'est une méthode, du travail, et les bons contacts.
-                                Exactement ce que je transmets dans First In Formation."
+                                "Pour lancer et développer une activité durable, 3 éléments sont indispensables :
+                                la bienveillance, la clarté, et la méthode."
                             </p>
                         </div>
 
                         <p>
-                            <strong>First In Formation</strong>, c'est tout ce que j'aurais aimé avoir quand j'ai démarré :
-                            la méthode complète, le carnet d'adresses, et un accompagnement personnalisé.
-                            <strong>Pas de théorie inutile.</strong> Que du concret.
+                            <strong>First In Formation</strong>, c'est la méthode complète, le carnet d'adresses,
+                            et un accompagnement personnalisé. <strong>Pas de théorie inutile.</strong>
                         </p>
                     </div>
 
                     <div class="founder-cta">
-                        <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%20Yacine%2C%20j%27aimerais%20en%20savoir%20plus%20sur%20la%20formation" class="btn-whatsapp" target="_blank">
+                        <a href="https://wa.me/33744934330?text=Bonjour%20Yacine%2C%20j%27aimerais%20en%20savoir%20plus%20sur%20la%20formation" class="btn-whatsapp" target="_blank">
                             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.917.918l4.462-1.496A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
                             Discuter avec Yacine
                         </a>
@@ -1216,9 +1181,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         4. STATS
-    ═══════════════════════════════════════════════════ -->
+    <!-- STATS -->
     <section class="section section-dark">
         <div class="section-container">
             <div class="stats-grid">
@@ -1242,9 +1205,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         5. 3 PILIERS
-    ═══════════════════════════════════════════════════ -->
+    <!-- 3 PILIERS -->
     <section class="section section-cream">
         <div class="section-container">
             <div class="section-header">
@@ -1258,21 +1219,21 @@
             <div class="pillars-grid">
                 <div class="pillar-card fade-up">
                     <div class="pillar-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                        <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
                     </div>
                     <h3>Exigence Absolue</h3>
-                    <p>Pas de théorie vague. Chaque module a été créé, testé et optimisé sur le terrain avec de vrais résultats.</p>
+                    <p>Pas de théorie vague. Chaque module a été créé, testé et optimisé sur le terrain.</p>
                     <ul class="pillar-list">
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Scripts de prospection prêts à l'emploi
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Templates de contrats et devis
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Processus d'onboarding client
                         </li>
                     </ul>
@@ -1284,21 +1245,21 @@
 
                 <div class="pillar-card fade-up">
                     <div class="pillar-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     </div>
                     <h3>Réseau International</h3>
-                    <p>Accédez directement à notre carnet d'adresses exclusif. Des contacts que nous avons mis des années à construire.</p>
+                    <p>Accédez directement à notre carnet d'adresses exclusif construit en années.</p>
                     <ul class="pillar-list">
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Hôtels 5 étoiles et palaces
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Jets privés et yacht brokers
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Contacts directs, pas d'intermédiaires
                         </li>
                     </ul>
@@ -1310,21 +1271,21 @@
 
                 <div class="pillar-card fade-up">
                     <div class="pillar-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
                     <h3>Accompagnement Sur-Mesure</h3>
-                    <p>Ce n'est pas une formation vidéo que vous regardez seul. C'est un vrai accompagnement avec accès direct à notre équipe.</p>
+                    <p>Ce n'est pas une formation vidéo passive. C'est un vrai accompagnement.</p>
                     <ul class="pillar-list">
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Communauté privée active 7j/7
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Calls de groupe hebdomadaires
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Support personnalisé
                         </li>
                     </ul>
@@ -1337,9 +1298,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         6. TRANSFORMATION (Timeline)
-    ═══════════════════════════════════════════════════ -->
+    <!-- TRANSFORMATION -->
     <section class="section section-white">
         <div class="section-container">
             <div class="section-header">
@@ -1357,15 +1316,15 @@
                     <p class="transformation-period">Semaines 1-4</p>
                     <ul class="transformation-list">
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Comprendre le marché du luxe
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Choisir votre niche
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Créer votre offre
                         </li>
                     </ul>
@@ -1381,15 +1340,15 @@
                     <p class="transformation-period">Semaines 5-8</p>
                     <ul class="transformation-list">
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Contacter vos premiers prospects
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Maîtriser les scripts de vente
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Signer votre premier client
                         </li>
                     </ul>
@@ -1405,15 +1364,15 @@
                     <p class="transformation-period">Semaines 9-12</p>
                     <ul class="transformation-list">
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Automatiser votre business
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Accéder au réseau de partenaires
                         </li>
                         <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Scaler votre activité
                         </li>
                     </ul>
@@ -1426,9 +1385,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         7. ASPIRATION (WOW)
-    ═══════════════════════════════════════════════════ -->
+    <!-- ASPIRATION -->
     <section class="aspiration">
         <div class="aspiration-container">
             <p class="aspiration-text fade-up">
@@ -1438,7 +1395,7 @@
 
             <div class="aspiration-grid">
                 <div class="aspiration-image fade-up">
-                    <img src="https://images.unsplash.com/photo-512453979798-5ea266f8880c?w=600&q=85" alt="Dubai Skyline">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=85" alt="Dubai Skyline">
                 </div>
                 <div class="aspiration-image fade-up">
                     <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=85" alt="Luxury Hotel">
@@ -1455,16 +1412,14 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         8. TÉMOIGNAGES
-    ═══════════════════════════════════════════════════ -->
+    <!-- TÉMOIGNAGES -->
     <section class="section section-cream" id="temoignages">
         <div class="section-container">
             <div class="section-header">
                 <div class="section-tag">Leurs retours</div>
                 <h2 class="section-title">Ils ont <em>transformé</em> leur vie</h2>
                 <p class="section-intro">
-                    Des parcours différents, un point commun : ils ont osé se lancer et ont obtenu des résultats.
+                    Des parcours différents, un point commun : ils ont osé se lancer.
                 </p>
             </div>
 
@@ -1479,11 +1434,11 @@
                         </div>
                     </div>
                     <div class="testimonial-stars">
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
                     <p class="testimonial-quote">
                         "J'ai quitté mon CDI il y a 8 mois. Aujourd'hui je gère ma conciergerie depuis Dubaï.
@@ -1511,15 +1466,15 @@
                         </div>
                     </div>
                     <div class="testimonial-stars">
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
                     <p class="testimonial-quote">
                         "Premier client signé en 3 semaines grâce aux scripts fournis.
-                        La méthode est claire, pas de blabla. On applique et ça fonctionne."
+                        La méthode est claire, pas de blabla."
                     </p>
                     <div class="testimonial-transformation">
                         <div class="testimonial-before">
@@ -1543,11 +1498,11 @@
                         </div>
                     </div>
                     <div class="testimonial-stars">
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
                     <p class="testimonial-quote">
                         "Je partais de zéro, sans aucune expérience dans le luxe.
@@ -1568,9 +1523,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         9. FAQ
-    ═══════════════════════════════════════════════════ -->
+    <!-- FAQ -->
     <section class="section section-white" id="faq">
         <div class="section-container">
             <div class="section-header">
@@ -1581,104 +1534,95 @@
             <div class="faq-grid">
                 <div class="faq-item fade-up">
                     <p class="faq-question">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         C'est pour qui cette formation ?
                     </p>
                     <p class="faq-answer">
                         Pour toute personne motivée qui veut créer son business dans le luxe.
-                        Aucune expérience préalable n'est requise. 80% de nos élèves partaient de zéro.
+                        80% de nos élèves partaient de zéro.
                     </p>
                 </div>
 
                 <div class="faq-item fade-up">
                     <p class="faq-question">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Combien de temps pour voir des résultats ?
                     </p>
                     <p class="faq-answer">
                         En moyenne, nos élèves signent leur premier client dans les premières semaines.
-                        Le timing exact dépend de votre implication.
                     </p>
                 </div>
 
                 <div class="faq-item fade-up">
                     <p class="faq-question">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Je n'ai aucune expérience, c'est possible ?
                     </p>
                     <p class="faq-answer">
                         Absolument. La formation est conçue pour les débutants complets.
-                        On vous donne les scripts, templates et contacts pour démarrer.
                     </p>
                 </div>
 
                 <div class="faq-item fade-up">
                     <p class="faq-question">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Comment fonctionne l'accompagnement ?
                     </p>
                     <p class="faq-answer">
-                        Communauté privée 7j/7, calls de groupe hebdomadaires,
-                        et support direct avec notre équipe.
+                        Communauté privée 7j/7, calls de groupe hebdomadaires, et support direct.
                     </p>
                 </div>
 
                 <div class="faq-item fade-up">
                     <p class="faq-question">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Il y a une garantie ?
                     </p>
                     <p class="faq-answer">
-                        Oui, satisfait ou remboursé pendant 30 jours. Si la méthode
-                        ne fonctionne pas pour vous, on vous rembourse.
+                        Oui, satisfait ou remboursé pendant 30 jours.
                     </p>
                 </div>
 
                 <div class="faq-item fade-up">
                     <p class="faq-question">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Quel est l'investissement ?
                     </p>
                     <p class="faq-answer">
-                        Contactez-nous via WhatsApp pour découvrir notre offre actuelle
-                        et les facilités de paiement disponibles.
+                        Contactez-nous via WhatsApp pour découvrir notre offre actuelle.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         10. CTA FINAL
-    ═══════════════════════════════════════════════════ -->
+    <!-- CTA FINAL -->
     <section class="cta-final" id="contact">
         <div class="cta-final-bg">
             <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920" alt="">
             <div class="cta-final-overlay"></div>
         </div>
         <div class="cta-container">
-            <div class="section-tag" style="color: var(--gold);">Prêt à commencer ?</div>
+            <div class="section-tag" style="color: var(--green-light);">Prêt à commencer ?</div>
             <h2 class="cta-title">Rejoignez les <em>+450 entrepreneurs</em> qui ont changé de vie</h2>
             <p class="cta-text">
                 Notre équipe vous accompagne de A à Z vers votre réussite.
                 Réservez un appel gratuit pour discuter de votre projet.
             </p>
 
-            <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20appel%20gratuit" class="btn-whatsapp-hero" target="_blank">
+            <a href="https://wa.me/33744934330?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20appel%20gratuit" class="btn-whatsapp-hero" target="_blank">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.917.918l4.462-1.496A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
                 Réserver mon appel gratuit
             </a>
 
             <div class="cta-guarantee">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 Garantie satisfait ou remboursé 30 jours
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         11. FOOTER
-    ═══════════════════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-main">
@@ -1706,29 +1650,27 @@
                 <div class="footer-col">
                     <p class="footer-title">Contact</p>
                     <ul class="footer-links">
-                        <li><a href="https://wa.me/33XXXXXXXXX" target="_blank">WhatsApp</a></li>
+                        <li><a href="https://wa.me/33744934330" target="_blank">+33 7 44 93 43 30</a></li>
+                        <li><a href="mailto:firstinconciergerie@gmail.com">firstinconciergerie@gmail.com</a></li>
                         <li><a href="#">Instagram</a></li>
-                        <li><a href="mailto:contact@first-in.fr">contact@first-in.fr</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <span>© 2025 First In Formation. Tous droits réservés.</span>
-                <span>Mentions légales · Confidentialité</span>
+                <span>Paris, France</span>
             </div>
         </div>
     </footer>
 
-    <!-- ═══════════════════════════════════════════════════
-         SCRIPTS SIMPLES (pas de GSAP complexe)
-    ═══════════════════════════════════════════════════ -->
+    <!-- SCRIPTS -->
     <script>
-        // Preloader simple (2.5s)
+        // Preloader
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('preloader').classList.add('hide');
                 document.body.classList.remove('loading');
-            }, 2500);
+            }, 2200);
         });
 
         // Navigation scroll
@@ -1745,19 +1687,15 @@
             }
         });
 
-        // Fade-up animation simple avec IntersectionObserver
+        // Fade-up animation
         const fadeElements = document.querySelectorAll('.fade-up');
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
         fadeElements.forEach(el => observer.observe(el));
     </script>
