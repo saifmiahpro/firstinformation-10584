@@ -3,1075 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="First In Formation - Découvrez l'histoire de Yacine et de First In Conciergerie">
     <title>À Propos | First In Formation</title>
+    <meta name="description" content="Découvrez l'histoire de Yacine et la vision derrière First In Formation.">
     <link rel="icon" type="image/png" href="./assets/images/LOGO NOIR.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --green-deep: #16332d;
-            --green: #1a4d3e;
-            --green-accent: #24775f;
-            --green-light: #2d9474;
-            --green-lighter: #3eb489;
-            --white: #ffffff;
-            --white-90: rgba(255,255,255,0.9);
-            --white-70: rgba(255,255,255,0.7);
-            --white-50: rgba(255,255,255,0.5);
-            --white-20: rgba(255,255,255,0.2);
-            --white-10: rgba(255,255,255,0.1);
-            --cream: #f8f6f3;
-            --text-dark: #1a1a1a;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--cream);
-            color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        ::selection { background: var(--green-accent); color: var(--white); }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .nav.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px 60px;
-            box-shadow: 0 2px 30px rgba(0,0,0,0.08);
-        }
-
-        .nav-logo img {
-            height: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .nav.scrolled .nav-logo img {
-            height: 40px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav.scrolled .nav-link {
-            color: var(--green-deep);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--green-lighter);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: var(--white);
-            color: var(--green-deep);
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav.scrolled .nav-cta {
-            background: var(--green-deep);
-            color: var(--white);
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Mobile Nav */
-        .mobile-header {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--green-deep);
-            padding: 18px 24px;
-            z-index: 1001;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .mobile-header.scrolled {
-            background: var(--white);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .mobile-header img {
-            height: 38px;
-        }
-
-        .hamburger {
-            width: 28px;
-            height: 20px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--white);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .mobile-header.scrolled .hamburger span {
-            background: var(--green-deep);
-        }
-
-        .hamburger span:nth-child(1) { top: 0; }
-        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
-        .hamburger span:nth-child(3) { bottom: 0; width: 70%; }
-
-        .hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { bottom: 50%; width: 100%; transform: translateY(50%) rotate(-45deg); }
-
-        .mobile-menu {
-            position: fixed;
-            inset: 0;
-            background: var(--green-deep);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu a {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            color: var(--green-lighter);
-        }
-
-        /* Page Hero */
-        .page-hero {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 100%);
-            padding: 120px 20px 80px;
-        }
-
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, rgba(46, 148, 116, 0.2) 0%, transparent 70%);
-        }
-
-        .page-hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-
-        .page-badge {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--green-lighter);
-            margin-bottom: 25px;
-            padding: 8px 20px;
-            background: rgba(62, 180, 137, 0.15);
-            border-radius: 50px;
-        }
-
-        .page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 500;
-            color: var(--white);
-            line-height: 1.15;
-            margin-bottom: 25px;
-        }
-
-        .page-title span {
-            color: var(--green-lighter);
-        }
-
-        .page-subtitle {
-            font-size: 18px;
-            font-weight: 400;
-            color: var(--white-70);
-            max-width: 650px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* Sections */
-        .section {
-            padding: 100px 60px;
-        }
-
-        .section-dark {
-            background: var(--green-deep);
-            color: var(--white);
-        }
-
-        .section-light {
-            background: var(--white);
-        }
-
-        .section-cream {
-            background: var(--cream);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 70px;
-        }
-
-        .section-badge {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--green-accent);
-            margin-bottom: 20px;
-        }
-
-        .section-dark .section-badge {
-            color: var(--green-lighter);
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 500;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .section-title span {
-            color: var(--green-accent);
-        }
-
-        .section-dark .section-title span {
-            color: var(--green-lighter);
-        }
-
-        .section-subtitle {
-            font-size: 17px;
-            color: var(--white-70);
-            line-height: 1.8;
-        }
-
-        .section-light .section-subtitle,
-        .section-cream .section-subtitle {
-            color: #666;
-        }
-
-        /* Story Section */
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 80px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .story-image {
-            position: relative;
-        }
-
-        .story-image img {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        }
-
-        .story-image-badge {
-            position: absolute;
-            bottom: -20px;
-            left: 30px;
-            background: var(--green-accent);
-            color: var(--white);
-            padding: 20px 30px;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(36, 119, 95, 0.4);
-        }
-
-        .story-image-badge-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .story-image-badge-label {
-            font-size: 13px;
-            margin-top: 5px;
-            opacity: 0.9;
-        }
-
-        .story-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 500;
-            margin-bottom: 30px;
-            line-height: 1.2;
-        }
-
-        .story-content h2 span {
-            color: var(--green-accent);
-        }
-
-        .story-content p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.9;
-            margin-bottom: 20px;
-        }
-
-        .story-quote {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--green-accent);
-            border-left: 4px solid var(--green-accent);
-            padding-left: 25px;
-            margin: 35px 0;
-            line-height: 1.6;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--green-deep);
-            color: var(--white);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .btn-primary:hover {
-            background: var(--green-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(36, 119, 95, 0.3);
-        }
-
-        /* Pillars */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .pillar-card {
-            text-align: center;
-            padding: 50px 35px;
-            background: var(--white-10);
-            border: 1px solid var(--white-10);
-            border-radius: 20px;
-            transition: all 0.4s ease;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-10px);
-            background: var(--white-20);
-            border-color: var(--green-lighter);
-        }
-
-        .pillar-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            background: var(--green-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            transition: all 0.4s ease;
-        }
-
-        .pillar-card:hover .pillar-icon {
-            background: var(--green-lighter);
-            transform: scale(1.1);
-        }
-
-        .pillar-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--white);
-        }
-
-        .pillar-text {
-            font-size: 15px;
-            color: var(--white-70);
-            line-height: 1.8;
-        }
-
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            text-align: center;
-            padding: 40px 25px;
-            background: var(--white);
-            border: 1px solid #eee;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: var(--green-accent);
-        }
-
-        .service-icon {
-            width: 65px;
-            height: 65px;
-            margin: 0 auto 20px;
-            background: rgba(36, 119, 95, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--green-accent);
-        }
-
-        .service-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-dark);
-        }
-
-        .service-text {
-            font-size: 14px;
-            color: #777;
-        }
-
-        /* Values */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .value-card {
-            display: flex;
-            gap: 25px;
-            padding: 35px;
-            background: var(--white);
-            border: 1px solid #eee;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            background: var(--white);
-            border-color: var(--green-accent);
-            transform: translateX(10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        }
-
-        .value-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--green-accent);
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-        .value-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .value-content p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 60px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-accent) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 500;
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-
-        .cta-text {
-            font-size: 18px;
-            color: var(--white-90);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .btn-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--white);
-            color: var(--green-deep);
-            font-size: 15px;
-            font-weight: 600;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1) translateY(-5px);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--green-deep);
-            padding: 60px;
-            border-top: 1px solid var(--white-10);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .footer-logo img {
-            height: 45px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 35px;
-        }
-
-        .footer-links a {
-            color: var(--white-70);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--green-lighter);
-        }
-
-        .footer-contact {
-            text-align: right;
-        }
-
-        .footer-contact a {
-            display: block;
-            color: var(--white-70);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-contact a:hover {
-            color: var(--green-lighter);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 30px;
-            border-top: 1px solid var(--white-10);
-            text-align: center;
-        }
-
-        .footer-copy {
-            color: var(--white-50);
-            font-size: 13px;
-        }
-
-        /* Animations */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-left {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-
-        .fade-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .nav { display: none; }
-            .mobile-header { display: flex; }
-            .section { padding: 80px 30px; }
-            .story-grid { grid-template-columns: 1fr; gap: 60px; }
-            .story-image { order: -1; text-align: center; }
-            .story-image img { margin: 0 auto; max-width: 350px; }
-            .pillars-grid { grid-template-columns: 1fr; max-width: 400px; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .values-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .page-hero { padding: 100px 20px 60px; min-height: 60vh; }
-            .page-title { font-size: 2rem; }
-            .section { padding: 60px 20px; }
-            .services-grid { grid-template-columns: 1fr; max-width: 350px; margin: 0 auto; }
-            .cta-section { padding: 80px 20px; }
-            .footer { padding: 40px 20px; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .footer-contact { text-align: center; }
-            .footer-links { flex-wrap: wrap; justify-content: center; }
-        }
+        :root{--green-deep:#16332d;--green:#1a4d3e;--green-accent:#24775f;--green-light:#2d9474;--green-lighter:#3eb489;--white:#fff;--cream:#f3f1ed;--black:#0a0a0a;--gray-800:#2d2d2d;--gray-700:#404040;--gray-600:#555;--gray-500:#737373;--gray-400:#a3a3a3;--gray-200:#e8e8e8}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--white);color:var(--gray-800);line-height:1.7;overflow-x:hidden}::selection{background:var(--green-accent);color:var(--white)}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+        .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}.fade-up.visible{opacity:1;transform:translateY(0)}
+
+        /* NAV - identical across pages */
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;transition:all .35s ease}.nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);padding:14px 5%;box-shadow:0 1px 0 rgba(0,0,0,.06)}.nav-logo img{height:42px;transition:all .3s}.nav.scrolled .nav-logo img{height:36px}.nav-menu{display:flex;align-items:center;gap:44px}.nav-links{display:flex;gap:32px}.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.85);transition:color .3s}.nav.scrolled .nav-links a{color:var(--gray-700)}.nav-links a:hover{color:var(--green-lighter)}.nav-cta{padding:11px 26px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:var(--white);font-size:14px;font-weight:600;transition:all .3s}.nav.scrolled .nav-cta{background:var(--green-accent);border-color:var(--green-accent);color:var(--white)}
+        .mobile-header{display:none;position:fixed;top:0;left:0;right:0;background:var(--green-deep);padding:16px 20px;z-index:101;justify-content:space-between;align-items:center;transition:all .3s}.mobile-header.scrolled{background:var(--white);box-shadow:0 1px 0 rgba(0,0,0,.08)}.mobile-header img{height:34px}.hamburger{width:24px;height:18px;position:relative;cursor:pointer;z-index:102}.hamburger span{position:absolute;left:0;width:100%;height:2px;background:var(--white);transition:all .3s;border-radius:1px}.mobile-header.scrolled .hamburger span{background:var(--green-deep)}.hamburger span:nth-child(1){top:0}.hamburger span:nth-child(2){top:50%;transform:translateY(-50%)}.hamburger span:nth-child(3){bottom:0;width:65%}.hamburger.active span:nth-child(1){top:50%;transform:translateY(-50%) rotate(45deg);background:var(--white)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){bottom:50%;width:100%;transform:translateY(50%) rotate(-45deg);background:var(--white)}.mobile-menu{position:fixed;inset:0;background:var(--green-deep);z-index:100;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;opacity:0;visibility:hidden;transition:all .4s ease}.mobile-menu.active{opacity:1;visibility:visible}.mobile-menu a{font-size:1.4rem;font-weight:500;color:var(--white)}
+        @media(max-width:900px){.nav{display:none}.mobile-header{display:flex}}
+
+        /* SECTIONS */
+        .section{padding:100px 5%}.section-inner{max-width:1140px;margin:0 auto}.section-green{background:var(--green-deep);color:var(--white)}.section-cream{background:var(--cream)}.section-white{background:var(--white)}
+        .section-label{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--green-accent);margin-bottom:14px}.section-green .section-label{color:var(--green-lighter)}
+        .section-heading{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:400;line-height:1.2;margin-bottom:16px}.section-heading em{font-style:italic;color:var(--green-accent)}.section-green .section-heading em{color:var(--green-lighter)}
+        .section-desc{font-size:16px;color:var(--gray-600);max-width:600px;line-height:1.75}.section-green .section-desc{color:rgba(255,255,255,.65)}
+
+        /* PAGE HERO */
+        .page-hero{background:var(--green-deep);padding:160px 5% 80px;text-align:center}.page-hero .section-label{color:var(--green-lighter)}.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);line-height:1.15;margin-bottom:18px}.page-hero h1 em{font-style:italic;color:var(--green-lighter)}.page-hero p{font-size:17px;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto;line-height:1.75}
+
+        /* STORY LAYOUT */
+        .story-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+        .story-img{border-radius:16px;overflow:hidden}
+        .story-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+        .story-text{font-size:15px;color:var(--gray-700);line-height:1.85}
+        .story-text p{margin-bottom:18px}
+        .story-text strong{color:var(--black);font-weight:600}
+        .story-chapter{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--green-accent);margin:28px 0 12px;padding-left:16px;border-left:3px solid var(--green-accent)}
+        .story-quote{background:linear-gradient(135deg,rgba(36,119,95,.06),transparent);padding:28px 32px;border-radius:12px;border-left:3px solid var(--green-accent);margin:28px 0}
+        .story-quote p{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;line-height:1.6;color:var(--gray-800);margin:0}
+
+        /* BIG QUOTE */
+        .big-quote{text-align:center;padding:80px 5%}
+        .big-quote blockquote{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-style:italic;color:var(--white);max-width:700px;margin:0 auto;line-height:1.4}
+        .big-quote cite{display:block;margin-top:20px;font-family:'Outfit',sans-serif;font-size:14px;font-style:normal;color:rgba(255,255,255,.5)}
+
+        /* PILLARS */
+        .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+        .pillar-card{background:var(--white);border-radius:16px;padding:36px 28px;border:1px solid var(--gray-200);transition:all .3s}
+        .pillar-card:hover{border-color:var(--green-accent);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+        .pillar-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--green-deep),var(--green-accent));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--white)}
+        .pillar-card h3{font-size:19px;font-weight:700;margin-bottom:10px;color:var(--black)}
+        .pillar-card p{font-size:14px;color:var(--gray-600);line-height:1.7}
+
+        /* VALUES */
+        .values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+        .value-card{padding:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+        .value-card h4{font-size:16px;font-weight:600;margin-bottom:8px}
+        .value-card p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.65}
+
+        /* CTA */
+        .btn-main{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;background:#25D366;color:var(--white);border-radius:8px;font-size:15px;font-weight:600;transition:all .3s;box-shadow:0 4px 20px rgba(37,211,102,.25)}.btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.35)}
+        .cta-section{text-align:center}.cta-section .section-heading{max-width:600px;margin-left:auto;margin-right:auto}
+
+        /* FOOTER */
+        .footer{background:var(--black);color:var(--white);padding:64px 5% 32px}.footer-inner{max-width:1140px;margin:0 auto}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}.footer-brand img{height:38px;margin-bottom:16px}.footer-brand p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;max-width:260px}.footer-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px}.footer-links{list-style:none}.footer-links li{margin-bottom:8px}.footer-links a{color:rgba(255,255,255,.45);font-size:13px;transition:color .3s}.footer-links a:hover{color:var(--green-lighter)}.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;font-size:12px;color:rgba(255,255,255,.25)}
+
+        @media(max-width:1024px){.story-grid{grid-template-columns:1fr;gap:40px}.story-img{max-width:360px;margin:0 auto}}
+        @media(max-width:900px){.pillars-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}.values-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:600px){.section{padding:72px 5%}.page-hero{padding:120px 5% 60px}.big-quote{padding:60px 5%}.footer-grid{grid-template-columns:1fr;text-align:center}.footer-brand{display:flex;flex-direction:column;align-items:center}.footer-bottom{flex-direction:column;gap:8px;text-align:center}}
     </style>
 </head>
 <body>
+    <nav class="nav" id="nav"><a href="index.html" class="nav-logo"><img src="./assets/images/LOGO BLANC.png" alt="First In" id="navLogo"></a><div class="nav-menu"><div class="nav-links"><a href="index.html">Accueil</a><a href="presentation.html">Présentation</a><a href="a-propos.html">À propos</a><a href="vos-reussites.html">Vos réussites</a></div><a href="contact.html" class="nav-cta">Contactez-nous</a></div></nav>
+    <header class="mobile-header" id="mobileHeader"><a href="index.html"><img src="./assets/images/LOGO BLANC.png" alt="First In" id="mobileLogo"></a><div class="hamburger" id="hamburger"><span></span><span></span><span></span></div></header>
+    <div class="mobile-menu" id="mobileMenu"><a href="index.html">Accueil</a><a href="presentation.html">Présentation</a><a href="a-propos.html">À propos</a><a href="vos-reussites.html">Vos réussites</a><a href="contact.html">Contactez-nous</a></div>
 
-<!-- Navigation -->
-<nav class="nav">
-    <a href="index.html" class="nav-logo">
-        <img src="./assets/images/LOGO BLANC.png" alt="First In Formation" id="navLogo">
-    </a>
-    <div class="nav-links">
-        <a href="index.html" class="nav-link">Accueil</a>
-        <a href="presentation.html" class="nav-link">Le Programme</a>
-        <a href="a-propos.html" class="nav-link active">À Propos</a>
-        <a href="vos-reussites.html" class="nav-link">Témoignages</a>
-        <a href="contact.html" class="nav-cta">Contactez-nous</a>
-    </div>
-</nav>
-
-<!-- Mobile Header -->
-<header class="mobile-header" id="mobileHeader">
-    <a href="index.html">
-        <img src="./assets/images/LOGO BLANC.png" alt="First In" id="mobileLogo">
-    </a>
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</header>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Accueil</a>
-    <a href="presentation.html">Le Programme</a>
-    <a href="a-propos.html">À Propos</a>
-    <a href="vos-reussites.html">Témoignages</a>
-    <a href="contact.html">Contactez-nous</a>
-</div>
-
-<!-- WhatsApp Button -->
-<a href="https://wa.me/33744934330" target="_blank" class="whatsapp-btn">
-    <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<main>
-
-    <!-- Page Hero -->
+    <!-- HERO — VERT -->
     <section class="page-hero">
-        <div class="page-hero-content">
-            <div class="page-badge fade-up">À propos</div>
-            <h1 class="page-title fade-up">Découvrez <span>mon histoire</span></h1>
-            <p class="page-subtitle fade-up">
-                Comment une vision née entre la France et les Émirats est devenue une référence du service sur-mesure, et pourquoi nous avons décidé d'ouvrir nos portes aux futurs leaders de l'industrie.
-            </p>
-        </div>
+        <div class="section-label">Notre histoire</div>
+        <h1>Découvrez comment une vision née entre la France et les Émirats a créé <em>First In Formation</em></h1>
+        <p>Plus qu'une formation — un écosystème construit sur le terrain, au contact direct du luxe international.</p>
     </section>
 
-    <!-- Story Section -->
-    <section class="section section-light">
-        <div class="story-grid">
-            <div class="story-image fade-left">
-                <img src="./assets/images/image.png" alt="Yacine - Fondateur de First In Conciergerie">
-                <div class="story-image-badge">
-                    <div class="story-image-badge-number">+6</div>
-                    <div class="story-image-badge-label">ans d'expérience</div>
+    <!-- STORY — BLANC -->
+    <section class="section section-white">
+        <div class="section-inner">
+            <div class="story-grid">
+                <div class="story-img fade-up">
+                    <img src="./assets/images/image.png" alt="Yacine - Fondateur">
                 </div>
-            </div>
+                <div class="fade-up">
+                    <div class="section-label">Le fondateur</div>
+                    <h2 class="section-heading" style="margin-bottom:24px">L'histoire de <em>Yacine</em></h2>
+                    <div class="story-text">
+                        <p><strong>Il y a quelques années, j'étais un simple étudiant.</strong> Pas de réseau dans le luxe, pas de capital de départ. Juste une conviction : je voulais construire quelque chose qui compte, quelque chose qui sorte du parcours classique.</p>
 
-            <div class="story-content">
-                <h2 class="fade-up">Bonjour à tous, moi c'est <span>Yacine</span></h2>
+                        <p class="story-chapter">Le déclic</p>
+                        <p>C'est lors d'un voyage à Dubaï que j'ai découvert le monde de la conciergerie de luxe. J'ai compris que ce marché n'est pas réservé à une élite née dedans — il est ouvert à ceux qui ont la méthode, la discipline et l'envie de servir une clientèle exigeante.</p>
 
-                <p class="fade-up">Le fondateur de First In Conciergerie. Je me souviens encore de l'époque où je n'étais qu'un simple étudiant, avec une ambition qui me dépassait : celle de réussir, de créer quelque chose de grand.</p>
+                        <p class="story-chapter">Le passage à l'action</p>
+                        <p>J'ai tout quitté pour m'installer à Dubaï. Les débuts n'étaient pas faciles — chaque contact, chaque partenaire, chaque client s'est gagné sur le terrain. <strong>En 6 mois, j'avais mes premiers clients réguliers.</strong> En 3 ans, une présence internationale.</p>
 
-                <div class="story-quote fade-up">"Je n'ai jamais fait partie de ceux qui attendent que les opportunités leur tombent dessus. J'ai toujours eu cette soif de grandeur, ce besoin d'accomplissement qui me poussait à aller au-delà de ce que l'on attendait de moi."</div>
+                        <p class="story-chapter">La mission</p>
+                        <p>Aujourd'hui, j'ai bâti une agence présente dans <strong>6 pays</strong>, avec un réseau de <strong>plus de 220 partenaires premium</strong>. Et j'ai décidé de transmettre tout ce que j'ai appris — pas dans une formation théorique, mais dans un vrai accompagnement terrain avec de vrais prestataires clé en main.</p>
 
-                <p class="fade-up">J'ai pris la décision de partir à Dubaï, un choix audacieux, mais qui s'est avéré déterminant. Présent sur place depuis plus de six ans, j'ai développé une expertise locale solide, enrichie par un réseau international de partenaires de confiance.</p>
-
-                <p class="fade-up">Notre mission ? Transformer chaque demande en une réalisation exceptionnelle, sans compromis sur la qualité ni sur les détails. Aujourd'hui, avec First In Formation, je transmets ce savoir-faire à ceux qui veulent créer leur propre activité de conciergerie de luxe.</p>
-
-                <a href="presentation.html" class="btn-primary fade-up">
-                    Découvrir la formation
-                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
+                        <div class="story-quote">
+                            <p>"Mon objectif n'est pas de vendre une formation. C'est de créer la prochaine génération d'entrepreneurs du luxe."</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Pillars Section -->
-    <section class="section section-dark">
-        <div class="section-header">
-            <div class="section-badge fade-up">Notre ADN</div>
-            <h2 class="section-title fade-up">Les <span>Trois Piliers</span></h2>
-            <p class="section-subtitle fade-up">La structure opérationnelle qui fait le succès de First In Conciergerie</p>
-        </div>
-
-        <div class="pillars-grid">
-            <div class="pillar-card fade-up">
-                <div class="pillar-icon">
-                    <svg width="36" height="36" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                </div>
-                <h3 class="pillar-title">Exigence Absolue</h3>
-                <p class="pillar-text">Chaque demande est traitée avec la plus grande attention aux détails. Le luxe ne tolère aucun compromis sur la qualité ni sur l'excellence du service.</p>
-            </div>
-
-            <div class="pillar-card fade-up">
-                <div class="pillar-icon">
-                    <svg width="36" height="36" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <h3 class="pillar-title">Réseau International</h3>
-                <p class="pillar-text">Plus de 220 partenaires sélectionnés à Dubaï, Paris, Monaco et dans le monde entier pour répondre à toutes les demandes les plus exclusives.</p>
-            </div>
-
-            <div class="pillar-card fade-up">
-                <div class="pillar-icon">
-                    <svg width="36" height="36" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-                </div>
-                <h3 class="pillar-title">Sur-mesure</h3>
-                <p class="pillar-text">Un accompagnement personnalisé adapté à chaque projet, chaque client, chaque situation. Nous créons des solutions uniques pour des besoins uniques.</p>
-            </div>
-        </div>
+    <!-- QUOTE — VERT -->
+    <section class="section-green big-quote">
+        <blockquote>"Le luxe, ce n'est pas une question de prix. C'est une question de <em style="color:var(--green-lighter)">service, d'attention et d'excellence</em>."</blockquote>
+        <cite>— Yacine, Fondateur de First In</cite>
     </section>
 
-    <!-- Services Section -->
+    <!-- 3 PILIERS — CREAM -->
     <section class="section section-cream">
-        <div class="section-header">
-            <div class="section-badge fade-up">Nos expertises</div>
-            <h2 class="section-title fade-up">Domaines <span>d'intervention</span></h2>
-            <p class="section-subtitle fade-up">First In Conciergerie opère dans les secteurs les plus prestigieux</p>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card fade-up">
-                <div class="service-icon">
-                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <h4 class="service-title">Mobilité internationale</h4>
-                <p class="service-text">Jets privés, yachts, transferts VIP</p>
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:56px">
+                <div class="section-label">Notre ADN</div>
+                <h2 class="section-heading">Les 3 piliers de <em>First In</em></h2>
             </div>
-
-            <div class="service-card fade-up">
-                <div class="service-icon">
-                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+            <div class="pillars-grid">
+                <div class="pillar-card fade-up">
+                    <div class="pillar-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+                    <h3>Exigence Absolue</h3>
+                    <p>Chaque outil, chaque script, chaque processus a été testé et optimisé sur le terrain. Pas de théorie — du concret qui fonctionne.</p>
                 </div>
-                <h4 class="service-title">Événements d'exception</h4>
-                <p class="service-text">Galas, soirées privées, concerts</p>
-            </div>
-
-            <div class="service-card fade-up">
-                <div class="service-icon">
-                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="pillar-card fade-up">
+                    <div class="pillar-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                    <h3>Réseau International</h3>
+                    <p>+220 partenaires dans 6 pays : hôtels 5 étoiles, jets privés, yachts, villas. Un carnet d'adresses construit en années de terrain.</p>
                 </div>
-                <h4 class="service-title">Investissements</h4>
-                <p class="service-text">Immobilier de luxe, opportunités</p>
-            </div>
-
-            <div class="service-card fade-up">
-                <div class="service-icon">
-                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <h4 class="service-title">Accompagnement pro</h4>
-                <p class="service-text">Conseil, networking, business</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="section section-cream">
-        <div class="section-header">
-            <div class="section-badge fade-up">Nos valeurs</div>
-            <h2 class="section-title fade-up">Ce qui nous <span>définit</span></h2>
-        </div>
-
-        <div class="values-grid">
-            <div class="value-card fade-up">
-                <div class="value-number">01</div>
-                <div class="value-content">
-                    <h4>Excellence</h4>
-                    <p>Nous visons l'excellence dans chaque détail, chaque interaction, chaque service rendu à nos clients.</p>
-                </div>
-            </div>
-            <div class="value-card fade-up">
-                <div class="value-number">02</div>
-                <div class="value-content">
-                    <h4>Discrétion</h4>
-                    <p>La confidentialité absolue est notre engagement. Ce qui se passe avec nos clients reste confidentiel.</p>
-                </div>
-            </div>
-            <div class="value-card fade-up">
-                <div class="value-number">03</div>
-                <div class="value-content">
-                    <h4>Innovation</h4>
-                    <p>Nous repoussons constamment les limites pour offrir des solutions créatives et sur-mesure.</p>
-                </div>
-            </div>
-            <div class="value-card fade-up">
-                <div class="value-number">04</div>
-                <div class="value-content">
-                    <h4>Passion</h4>
-                    <p>Notre passion pour le service d'exception nous pousse à dépasser les attentes à chaque fois.</p>
+                <div class="pillar-card fade-up">
+                    <div class="pillar-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+                    <h3>Sur-Mesure</h3>
+                    <p>Un vrai accompagnement avec de vrais prestataires clé en main. Communauté active, calls hebdomadaires, support direct.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="cta-content">
-            <div class="section-badge fade-up" style="color: var(--green-lighter);">Rejoignez-nous</div>
-            <h2 class="cta-title fade-up">Prêt à écrire votre histoire ?</h2>
-            <p class="cta-text fade-up">Rejoignez First In Formation et apprenez à créer votre propre conciergerie de luxe avec notre méthode éprouvée.</p>
-            <a href="https://wa.me/33744934330" class="btn-cta fade-up">
-                Réserver ma présentation offerte
-                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+    <!-- VALEURS — VERT -->
+    <section class="section section-green">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:56px">
+                <div class="section-label">Ce qui nous guide</div>
+                <h2 class="section-heading">Nos <em>valeurs</em></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card fade-up"><h4>Excellence</h4><p>Chaque détail compte. Nous formons des entrepreneurs qui visent le plus haut niveau de service.</p></div>
+                <div class="value-card fade-up"><h4>Authenticité</h4><p>Pas de promesses vides. Tout ce que nous enseignons est issu de notre propre expérience terrain.</p></div>
+                <div class="value-card fade-up"><h4>Transmission</h4><p>Notre mission est de permettre à chacun d'accéder à un marché qui semblait réservé à une élite.</p></div>
+                <div class="value-card fade-up"><h4>Bienveillance</h4><p>Nous accompagnons chaque élève avec attention, patience et exigence. La réussite se construit ensemble.</p></div>
+            </div>
         </div>
     </section>
 
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <img src="./assets/images/LOGO BLANC.png" alt="First In Formation">
+    <!-- CTA — BLANC -->
+    <section class="section section-white cta-section">
+        <div class="section-inner">
+            <div class="section-label" style="text-align:center">Envie d'en savoir plus ?</div>
+            <h2 class="section-heading" style="color:var(--black);max-width:600px;margin-left:auto;margin-right:auto">Discutez avec Yacine et découvrez si cette formation est <em>faite pour vous</em></h2>
+            <p class="section-desc" style="margin:0 auto 32px;text-align:center">Un échange direct, sans engagement, pour comprendre votre projet.</p>
+            <a href="https://wa.me/33744934330?text=Bonjour%20Yacine%2C%20j%27aimerais%20en%20savoir%20plus%20sur%20la%20formation" class="btn-main" target="_blank"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.917.918l4.462-1.496A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Discuter avec Yacine</a>
         </div>
-        <div class="footer-links">
-            <a href="index.html">Accueil</a>
-            <a href="presentation.html">Le Programme</a>
-            <a href="a-propos.html">À Propos</a>
-            <a href="vos-reussites.html">Témoignages</a>
-        </div>
-        <div class="footer-contact">
-            <a href="tel:+33744934330">+33 7 44 93 43 30</a>
-            <a href="mailto:firstinconciergerie@gmail.com">firstinconciergerie@gmail.com</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p class="footer-copy">© 2026 First In Formation. Tous droits réservés.</p>
-    </div>
-</footer>
+    </section>
 
-<script>
-// Navigation scroll effect
-const nav = document.querySelector('.nav');
-const mobileHeader = document.getElementById('mobileHeader');
-const navLogo = document.getElementById('navLogo');
-const mobileLogo = document.getElementById('mobileLogo');
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="./assets/images/LOGO BLANC.png" alt="First In Formation"><p>La formation de référence pour créer votre conciergerie de luxe.</p></div><div><p class="footer-title">Navigation</p><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="presentation.html">Présentation</a></li><li><a href="a-propos.html">À propos</a></li><li><a href="vos-reussites.html">Vos réussites</a></li></ul></div><div><p class="footer-title">Ressources</p><ul class="footer-links"><li><a href="index.html#fondateur">Notre histoire</a></li><li><a href="index.html#temoignages">Témoignages</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div><div><p class="footer-title">Contact</p><ul class="footer-links"><li><a href="https://wa.me/33744934330" target="_blank">+33 7 44 93 43 30</a></li><li><a href="mailto:firstinconciergerie@gmail.com">firstinconciergerie@gmail.com</a></li><li><a href="contact.html">Contactez-nous</a></li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 First In Formation.</span><span>Paris, France</span></div></div></footer>
 
-const logoWhite = './assets/images/LOGO BLANC.png';
-const logoDark = './assets/images/LOGO NOIR.png';
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-        mobileHeader.classList.add('scrolled');
-        navLogo.src = logoDark;
-    } else {
-        nav.classList.remove('scrolled');
-        mobileHeader.classList.remove('scrolled');
-        navLogo.src = logoWhite;
-    }
-});
-
-// Mobile menu
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-});
-
-mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
-
-// Fade animations with IntersectionObserver
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.fade-up, .fade-left').forEach(el => {
-    observer.observe(el);
-});
-</script>
-
+    <script>
+        const nav=document.getElementById('nav'),navLogo=document.getElementById('navLogo'),mH=document.getElementById('mobileHeader'),mL=document.getElementById('mobileLogo');
+        window.addEventListener('scroll',()=>{const s=window.scrollY>60;nav.classList.toggle('scrolled',s);mH.classList.toggle('scrolled',s);navLogo.src=s?'./assets/images/LOGO NOIR.png':'./assets/images/LOGO BLANC.png';mL.src=s?'./assets/images/LOGO NOIR.png':'./assets/images/LOGO BLANC.png'});
+        const hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');
+        hb.addEventListener('click',()=>{hb.classList.toggle('active');mm.classList.toggle('active');document.body.style.overflow=mm.classList.contains('active')?'hidden':''});
+        mm.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{hb.classList.remove('active');mm.classList.remove('active');document.body.style.overflow=''}));
+        const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+    </script>
 </body>
 </html>
