@@ -324,6 +324,87 @@
             100% { transform: translate(-20px, 20px) scale(0.95); }
         }
 
+        /* Floating 3D objects */
+        .hero-objects {
+            position: absolute; inset: 0;
+            pointer-events: none; z-index: 1;
+            perspective: 800px;
+        }
+        .hero-obj {
+            position: absolute;
+            border: 1px solid rgba(62,180,137,0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            background: rgba(62,180,137,0.04);
+        }
+        .hero-obj-1 {
+            width: 80px; height: 80px;
+            border-radius: 20px;
+            top: 18%; left: 8%;
+            animation: objFloat1 16s ease-in-out infinite, objSpin 20s linear infinite;
+        }
+        .hero-obj-2 {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            top: 30%; right: 12%;
+            border-color: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            animation: objFloat2 12s ease-in-out infinite, objSpin 25s linear infinite reverse;
+        }
+        .hero-obj-3 {
+            width: 120px; height: 120px;
+            border-radius: 32px;
+            bottom: 22%; left: 12%;
+            border-color: rgba(62,180,137,0.12);
+            background: rgba(62,180,137,0.02);
+            animation: objFloat3 18s ease-in-out infinite, objSpin 30s linear infinite;
+        }
+        .hero-obj-4 {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            bottom: 35%; right: 8%;
+            animation: objFloat1 14s ease-in-out infinite 2s, objSpin 15s linear infinite reverse;
+        }
+        .hero-obj-5 {
+            width: 65px; height: 65px;
+            border-radius: 50%;
+            top: 55%; left: 5%;
+            border-color: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
+            animation: objFloat2 20s ease-in-out infinite 3s, objSpin 22s linear infinite;
+        }
+        .hero-obj-6 {
+            width: 35px; height: 35px;
+            border-radius: 8px;
+            top: 15%; right: 25%;
+            animation: objFloat3 15s ease-in-out infinite 1s, objSpin 18s linear infinite reverse;
+        }
+        @keyframes objFloat1 {
+            0%, 100% { transform: translate(0, 0) rotateX(0deg) rotateY(0deg); }
+            25% { transform: translate(20px, -30px) rotateX(10deg) rotateY(15deg); }
+            50% { transform: translate(-10px, -50px) rotateX(-5deg) rotateY(-10deg); }
+            75% { transform: translate(15px, -20px) rotateX(8deg) rotateY(5deg); }
+        }
+        @keyframes objFloat2 {
+            0%, 100% { transform: translate(0, 0) rotateX(0deg); }
+            33% { transform: translate(-25px, -35px) rotateX(15deg); }
+            66% { transform: translate(15px, -20px) rotateX(-10deg); }
+        }
+        @keyframes objFloat3 {
+            0%, 100% { transform: translate(0, 0) rotateY(0deg); }
+            50% { transform: translate(30px, -40px) rotateY(20deg); }
+        }
+        @keyframes objSpin {
+            from { rotate: 0deg; }
+            to { rotate: 360deg; }
+        }
+        @media (max-width: 900px) {
+            .hero-obj-1, .hero-obj-3, .hero-obj-5 { display: none; }
+            .hero-obj-2 { top: 15%; right: 5%; width: 40px; height: 40px; }
+            .hero-obj-4 { bottom: 20%; right: 5%; width: 30px; height: 30px; }
+            .hero-obj-6 { top: 12%; right: 15%; }
+        }
+
         /* HERO CONTENT — full width cinematic layout */
         .hero-content {
             position: relative; z-index: 2;
@@ -1536,6 +1617,14 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-ambient"></div>
+        <div class="hero-objects">
+            <div class="hero-obj hero-obj-1"></div>
+            <div class="hero-obj hero-obj-2"></div>
+            <div class="hero-obj hero-obj-3"></div>
+            <div class="hero-obj hero-obj-4"></div>
+            <div class="hero-obj hero-obj-5"></div>
+            <div class="hero-obj hero-obj-6"></div>
+        </div>
 
         <div class="hero-content">
             <div class="hero-eyebrow">
