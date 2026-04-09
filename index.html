@@ -267,143 +267,56 @@
         }
 
         /* ═══════════════════════════════════════
-           HERO — CINEMATIC STATEMENT 2026
+           HERO — FULLSCREEN CINEMATIC
         ═══════════════════════════════════════ */
         .hero {
             min-height: 100vh;
-            background: var(--green-deep);
+            background: var(--black);
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             position: relative;
             overflow: hidden;
         }
-        /* Video background */
         .hero-bg {
-            position: absolute; inset: -20px;
-            will-change: transform;
+            position: absolute; inset: 0;
         }
         .hero-bg video {
             width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.4;
-            transform: scale(1.08);
+            opacity: 0.55;
         }
-        /* Cinematic overlay — darker edges, lighter center */
+        /* Cinematic vignette — heavy bottom for text readability */
         .hero-overlay {
             position: absolute; inset: 0;
             background:
-                radial-gradient(ellipse at 50% 40%, rgba(22,51,45,0.45) 0%, rgba(22,51,45,0.85) 70%),
-                linear-gradient(180deg, rgba(22,51,45,0.7) 0%, transparent 30%, rgba(22,51,45,0.9) 100%);
-        }
-        /* Animated ambient light */
-        .hero-ambient {
-            position: absolute; inset: 0;
-            pointer-events: none; z-index: 1;
-        }
-        .hero-ambient::before, .hero-ambient::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-        }
-        .hero-ambient::before {
-            width: 600px; height: 600px;
-            background: rgba(62,180,137,0.08);
-            top: 10%; left: 5%;
-            animation: ambientDrift 14s ease-in-out infinite alternate;
-        }
-        .hero-ambient::after {
-            width: 500px; height: 500px;
-            background: rgba(45,148,116,0.06);
-            bottom: 5%; right: 5%;
-            animation: ambientDrift 18s ease-in-out infinite alternate-reverse;
-        }
-        @keyframes ambientDrift {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(40px, -30px) scale(1.1); }
-            100% { transform: translate(-20px, 20px) scale(0.95); }
+                linear-gradient(180deg,
+                    rgba(0,0,0,0.3) 0%,
+                    rgba(0,0,0,0.1) 30%,
+                    rgba(0,0,0,0.2) 50%,
+                    rgba(0,0,0,0.7) 80%,
+                    rgba(0,0,0,0.85) 100%
+                ),
+                radial-gradient(ellipse at 50% 30%, transparent 0%, rgba(0,0,0,0.3) 70%);
         }
 
-        /* Floating themed icons */
-        .hero-floats {
-            position: absolute; inset: 0;
-            pointer-events: none; z-index: 1;
-        }
-        .hero-float {
-            position: absolute;
-            display: flex; align-items: center; justify-content: center;
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            color: rgba(255,255,255,0.35);
-            font-size: 22px;
-        }
-        .hero-float-1 {
-            width: 64px; height: 64px;
-            top: 20%; left: 7%;
-            animation: floatA 14s ease-in-out infinite;
-        }
-        .hero-float-2 {
-            width: 56px; height: 56px;
-            top: 25%; right: 10%;
-            border-radius: 50%;
-            animation: floatB 12s ease-in-out infinite 1s;
-        }
-        .hero-float-3 {
-            width: 72px; height: 72px;
-            bottom: 28%; left: 10%;
-            border-radius: 20px;
-            animation: floatA 16s ease-in-out infinite 2s;
-        }
-        .hero-float-4 {
-            width: 52px; height: 52px;
-            bottom: 22%; right: 7%;
-            border-radius: 14px;
-            animation: floatB 13s ease-in-out infinite 0.5s;
-        }
-        @keyframes floatA {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(8deg); }
-        }
-        @keyframes floatB {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(-6deg); }
-        }
-        @media (max-width: 900px) {
-            .hero-float-1, .hero-float-3 { display: none; }
-            .hero-float-2 { top: 15%; right: 4%; width: 44px; height: 44px; font-size: 18px; }
-            .hero-float-4 { bottom: 18%; right: 4%; width: 44px; height: 44px; font-size: 18px; }
-        }
-
-        /* HERO CONTENT — full width cinematic layout */
         .hero-content {
             position: relative; z-index: 2;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 140px 5% 120px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            padding: 0 5% 80px;
+            text-align: left;
         }
         .hero-eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 22px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 100px;
+            gap: 8px;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--green-lighter);
-            margin-bottom: 36px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
         }
         .hero-eyebrow-dot {
             width: 6px; height: 6px;
@@ -417,36 +330,32 @@
         }
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(42px, 7vw, 82px);
+            font-size: clamp(38px, 6vw, 72px);
             font-weight: 400;
             color: var(--white);
-            line-height: 1.05;
-            margin-bottom: 28px;
+            line-height: 1.08;
+            margin-bottom: 20px;
             letter-spacing: -0.02em;
-            max-width: 900px;
+            max-width: 700px;
         }
         .hero-title em {
             font-style: italic;
-            background: linear-gradient(135deg, var(--green-lighter), #6ee7b7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--green-lighter);
         }
         .hero-desc {
-            font-size: 18px;
-            color: rgba(255,255,255,0.5);
-            max-width: 520px;
-            margin: 0 auto 44px;
-            line-height: 1.75;
+            font-size: 17px;
+            color: rgba(255,255,255,0.55);
+            max-width: 480px;
+            margin-bottom: 32px;
+            line-height: 1.7;
             font-weight: 300;
         }
         .hero-cta-row {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
         .btn-main {
             display: inline-flex;
@@ -1588,13 +1497,6 @@
             </video>
         </div>
         <div class="hero-overlay"></div>
-        <div class="hero-ambient"></div>
-        <div class="hero-floats">
-            <div class="hero-float hero-float-1"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg></div>
-            <div class="hero-float hero-float-2"><svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-            <div class="hero-float hero-float-3"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
-            <div class="hero-float hero-float-4"><svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        </div>
 
         <div class="hero-content">
             <div class="hero-eyebrow">
