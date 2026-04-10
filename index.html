@@ -95,7 +95,7 @@
         ═══════════════════════════════════════ */
         .nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 38px; left: 0; right: 0;
             z-index: 100;
             padding: 20px 5%;
             display: flex;
@@ -237,10 +237,10 @@
         .mobile-header {
             display: none;
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 38px; left: 0; right: 0;
             background: var(--green-deep);
             padding: 16px 20px;
-            z-index: 101;
+            z-index: 100;
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s;
@@ -304,12 +304,15 @@
            TOP BANNER
         ═══════════════════════════════════════ */
         .top-banner {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 101;
             background: linear-gradient(90deg, var(--green-deep), var(--green-accent), var(--green-deep));
             background-size: 200% 100%;
             animation: gradient-shift 8s ease infinite;
             text-align: center;
-            padding: 11px 20px;
-            font-size: 13px;
+            padding: 10px 20px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--white);
             letter-spacing: 0.03em;
@@ -1570,6 +1573,8 @@
             <div class="nav-links">
                 <a href="index.html">Accueil</a>
                 <a href="presentation.html">Présentation</a>
+                <a href="a-propos.html">À propos</a>
+                <a href="vos-reussites.html">Vos réussites</a>
                 <div class="nav-dropdown">
                     <a href="https://www.firstinconciergerie.com/" target="_blank">Nos Conciergeries <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></a>
                     <div class="nav-dropdown-menu">
@@ -1579,8 +1584,6 @@
                         <a href="https://www.firstinconciergerie.com/" target="_blank"><span class="city-dot"></span> Marrakech</a>
                     </div>
                 </div>
-                <a href="a-propos.html">À propos</a>
-                <a href="vos-reussites.html">Vos réussites</a>
             </div>
             <a href="contact.html" class="nav-cta">Contactez-nous</a>
         </div>
@@ -1594,10 +1597,10 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html">Accueil</a>
         <a href="presentation.html">Présentation</a>
-        <a href="https://www.firstinconciergerie.com/" target="_blank">Nos Conciergeries</a>
         <a href="a-propos.html">À propos</a>
         <a href="vos-reussites.html">Vos réussites</a>
         <a href="contact.html">Contactez-nous</a>
+        <a href="https://www.firstinconciergerie.com/" target="_blank">Nos Conciergeries</a>
     </div>
 
     <!-- ═══════════════════════════════════════
