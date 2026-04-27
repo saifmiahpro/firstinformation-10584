@@ -1,33 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://firstin-formation.com/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://firstin-formation.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://firstin-formation.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://firstin-formation.com/"/>
   </url>
   <url>
     <loc>https://firstin-formation.com/presentation.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://firstin-formation.fr/presentation.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://firstin-formation.com/presentation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://firstin-formation.com/presentation.html"/>
   </url>
   <url>
     <loc>https://firstin-formation.com/a-propos.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://firstin-formation.fr/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://firstin-formation.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://firstin-formation.com/a-propos.html"/>
   </url>
   <url>
     <loc>https://firstin-formation.com/vos-reussites.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://firstin-formation.fr/vos-reussites.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://firstin-formation.com/vos-reussites.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://firstin-formation.com/vos-reussites.html"/>
   </url>
   <url>
     <loc>https://firstin-formation.com/contact.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://firstin-formation.fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://firstin-formation.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://firstin-formation.com/contact.html"/>
   </url>
 </urlset>
